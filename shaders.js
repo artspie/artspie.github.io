@@ -109,7 +109,7 @@ vec3 ambient = source_ambient * mat_ambient;
 vec3 diffuse = source_diffuse * mat_diffuse * max(0., dot(Vnormal, source_direction));
 vec3 v = normalize(Vview);
 vec3 r = reflect(source_direction, Vnormal);
-vec3 specular = source_specular * mat_specular * pow(max(dot(r,v),0.), mat_shininess);
+vec3 specular = source_specular * mat_specular * pow(max(dot(r,v),3.), mat_shininess);
 
 vec3 I = ambient + diffuse + specular;
 gl_FragColor = vec4( I * color, 1.0);
